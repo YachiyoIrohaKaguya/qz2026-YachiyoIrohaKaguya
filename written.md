@@ -202,7 +202,8 @@ logs = [
 2. 写出表达式，统计每个用户出现了几次（返回字典，键为用户名，值为次数）。
 3. 解释为什么第 2 问不能直接用 `len(logs)` 得到结果，需要什么遍历结构？
 
-1.error_list = [log for log in logs if log ["level"] =="ERROR"]
+1.error_logs = [log for log in logs if log ["level"] =="ERROR"]
+  print(error_logs)
 2.counts = {}
   for iog in logs:
       name = item["user"]
@@ -210,7 +211,7 @@ logs = [
      counts[name] = 1
   else:
       counts[name] = counts[name] + 1
-  counts
+  print(counts)
 3.那个len是算有几条日志，只能得出5而不是每人出现几次。for.
 ### 第 3 题：异常处理设计
 
@@ -225,4 +226,9 @@ Day_10 中你写过 `safe_int(s)` 函数：能转就返回整数，不能转就�
 
 请写出函数代码，并说明：为什么这里用 `try/except` 比先用 `if` 判断再计算更好？
 
-（在此作答）
+def safe_divide(a, b):
+    try:
+        return float(a) / float(b)
+    except (ValueError，ZeroDivisionError):
+          return None
+####说明：if得写一堆报错条件，太麻烦。try/except只要出错误结果再输出except更简单
