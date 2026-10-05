@@ -9,7 +9,7 @@
 
 1. 依次执行以下代码，输出是什么？
 
-   ```python
+   ```python  
    def f(x, lst=[]):
        lst.append(x)
        return lst
@@ -19,14 +19,14 @@
    print(b)
    ```
 
-   - A. `[2]`
-   - B. `[1, 2]`
-   - C. `[1]`
+   - A. `[2]`  
+   - B. `[1, 2]`  
+   - C. `[1]`  
    - D. `TypeError: 'list' object is not callable`
 
 2. 依次执行以下代码，输出是什么？
 
-   ```python
+   ```python  
    a = [1, 2, 3]
    b = a
    c = a.copy()
@@ -202,8 +202,16 @@ logs = [
 2. 写出表达式，统计每个用户出现了几次（返回字典，键为用户名，值为次数）。
 3. 解释为什么第 2 问不能直接用 `len(logs)` 得到结果，需要什么遍历结构？
 
-（在此作答）
-
+1.error_list = [log for log in logs if log ["level"] =="ERROR"]
+2.counts = {}
+  for iog in logs:
+      name = item["user"]
+  if name not in counts:
+     counts[name] = 1
+  else:
+      counts[name] = counts[name] + 1
+  counts
+3.那个len是算有几条日志，只能得出5而不是每人出现几次。for.
 ### 第 3 题：异常处理设计
 
 Day_10 中你写过 `safe_int(s)` 函数：能转就返回整数，不能转就返回 `None`。
