@@ -205,12 +205,12 @@ logs = [
 1.error_logs = [log for log in logs if log ["level"] =="ERROR"]
   print(error_logs)
 2.counts = {}
-  for iog in logs:
-      name = item["user"]
-  if name not in counts:
-     counts[name] = 1
-  else:
-      counts[name] = counts[name] + 1
+  for log in logs:
+      name = log["user"]
+      if name not in counts:
+          counts[name] = 1
+      else:
+          counts[name] = counts[name] + 1
   print(counts)
 3.那个len是算有几条日志，只能得出5而不是每人出现几次。for.
 ### 第 3 题：异常处理设计
@@ -229,6 +229,6 @@ Day_10 中你写过 `safe_int(s)` 函数：能转就返回整数，不能转就�
 def safe_divide(a, b):
     try:
         return float(a) / float(b)
-    except (ValueError，ZeroDivisionError):
+    except (ValueError,ZeroDivisionError):
           return None
 ####说明：if得写一堆报错条件，太麻烦。try/except只要出错误结果再输出except更简单
